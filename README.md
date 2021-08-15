@@ -1,10 +1,11 @@
-FlapPyBird
+FlapPyBirdEMG
 ===============
 
-A Flappy Bird Clone made using [python-pygame][pygame]
+A clone of a flappy bird [clone](https://github.com/sourabhv/FlapPyBird) that can be played with any microphone input. This project is compatible with Backyard Brain's [SpikerBox](https://backyardbrains.com/products/spikerboxBundle).  
 
 How-to (as tested on MacOS)
 ---------------------------
+Additional pip packages such as `pyaudio` may have to be installed too.
 
 1. Install Python 3.x (recommended) 2.x from [here](https://www.python.org/download/releases/)
 
