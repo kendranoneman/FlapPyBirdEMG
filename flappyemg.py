@@ -1,10 +1,18 @@
 from itertools import cycle
 import random
 import sys
-
+import pyaudio
+import argparse
+import time 
 import pygame
+import threading
+import queue
+import numpy as np
+import aubio 
 from pygame.locals import *
 
+# ADJUST EMPIRICALLY
+inputThresh = 8.0
 
 FPS = 30
 SCREENWIDTH  = 288
@@ -48,6 +56,7 @@ PIPES_LIST = (
     'assets/sprites/pipe-red.png',
 )
 
+audioInputQueue = queue.Queue()
 
 try:
     xrange
@@ -230,12 +239,12 @@ def mainGame(movementInfo):
             if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 pygame.quit()
                 sys.exit()
-            if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP):
-                if playery > -2 * IMAGES['player'][0].get_height():
-                    playerVelY = playerFlapAcc
-                    playerFlapped = True
-                    SOUNDS['wing'].play()
-
+        if not(audioInputQueue.empty()):
+            currentVal = audioInputQueue.get()
+            if playery > -2 * IMAGES['player'][0].get_height():
+                playerVelY = playerFlapAcc
+                playerFlapped = True
+                SOUNDS['wing'].play()
         # check for crash here
         crashTest = checkCrash({'x': playerx, 'y': playery, 'index': playerIndex},
                                upperPipes, lowerPipes)
@@ -347,6 +356,7 @@ def showGameOverScreen(crashInfo):
                 sys.exit()
             if event.type == KEYDOWN and (event.key == K_SPACE or event.key == K_UP):
                 if playery + playerHeight >= BASEY - 1:
+                    audioInputQueue.queue.clear()
                     return
 
         # player y shift
@@ -482,6 +492,41 @@ def getHitmask(image):
         for y in xrange(image.get_height()):
             mask[x].append(bool(image.get_at((x,y))[3]))
     return mask
+
+
+def getAudioInputVal():
+    while True:
+        # Sample every 100ms?
+        data = stream.read(1024, exception_on_overflow=False)
+        samples = np.frombuffer(data, dtype=aubio.float_type)
+        audioVal = np.sum(samples ** 2) *50 / len(samples)
+        if audioVal > inputThresh:
+            print (audioVal)
+            audioInputQueue.put(audioVal)
+
+#  Lines 507-528 from https://github.com/burningion/singy-bird/blob/master/pygame-first.py
+# The Following lines below are responsible for detecting input from the audio input 
+parser = argparse.ArgumentParser()
+parser.add_argument("-input", required=False, type=int, help="Audio Input Device")
+args = parser.parse_args()
+
+if args.input is None:
+    print("No input device specified. Printing list of input devices now: ")
+    p = pyaudio.PyAudio()
+    for i in range(p.get_device_count()):
+        print("Device number (%i): %s" % (i, p.get_device_info_by_index(i).get('name')))
+    print("Run this program with -input 1, or the number of the input you'd like to use.")
+    exit()
+
+p = pyaudio.PyAudio()
+# Open stream.
+stream = p.open(format=pyaudio.paFloat32,
+                channels=1, rate=44100, input=True,
+                input_device_index=args.input, frames_per_buffer=4096)
+time.sleep(.1)
+t = threading.Thread(target=getAudioInputVal)
+t.daemon = True
+t.start()
 
 if __name__ == '__main__':
     main()
