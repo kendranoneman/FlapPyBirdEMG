@@ -15,8 +15,9 @@ from pygame.locals import *
 inputThresh = 8.0
 
 FPS = 30
-SCREENWIDTH  = 288
-SCREENHEIGHT = 512
+SCREENWIDTH  = 288 #288
+SCREENHEIGHT = 512 #512
+
 PIPEGAPSIZE  = 100 # gap between upper and lower part of pipe
 BASEY        = SCREENHEIGHT * 0.79
 # image, sound and hitmask  dicts
@@ -501,7 +502,6 @@ def getAudioInputVal():
         samples = np.frombuffer(data, dtype=aubio.float_type)
         audioVal = np.sum(samples ** 2) *50 / len(samples)
         if audioVal > inputThresh:
-            print (audioVal)
             audioInputQueue.put(audioVal)
 
 #  Lines 507-528 from https://github.com/burningion/singy-bird/blob/master/pygame-first.py
