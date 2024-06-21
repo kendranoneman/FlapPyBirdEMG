@@ -9,11 +9,14 @@ Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be install
 
 1. Clone the repository or fork/clone your own:
 
+   If you have SSH keys configured:
    ```bash
-   $ git clone https://github.com/kendranoneman/FlapPyBirdEMG.git 
    $ git clone git@github.com:kendranoneman/FlapPyBirdEMG.git
    ```
-
+   OR 
+   ```bash
+   $ git clone https://github.com/kendranoneman/FlapPyBirdEMG.git 
+    ```
    or download as zip and extract.
 
 1. In the root directory run
