@@ -36,13 +36,13 @@ Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be install
     <img width="534" alt="Screenshot 2024-06-21 at 12 21 42 PM" src="https://github.com/kendranoneman/FlapPyBirdEMG/assets/37158560/59b21f59-6d30-47ba-a8c7-7d72d189c4c9">
 
 
-1. Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
-
-(For x64 windows, get exe [here](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame))
+Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
 
 Running FlappyBird
 ---------------------------
-1. In the root directory (with the conda environment activated), run
+1. Make sure the laptop cable is plugged into the "audio out" port on the SpikerBox and headphone jack on the laptop (with the labelled ends of the cable in the right spots) and the SpikerBox dial is turned up so the box is on (light should turn on). You can use the "Spike Recorder" application, found on the website, to monitor this connection as well.
+   
+2. In the root directory (with the conda environment activated), run
    ```bash
    $ python flappyemg.py
    ```
@@ -53,7 +53,7 @@ Running FlappyBird
    * Device number (2): Kendra’s iPhone Microphone
    * Device number (3): Microsoft Teams Audio
   
-   But, when the SpikerBox is plugged in another option will pop up (I can't remember right now which one it is lol).
+   But, when the SpikerBox is plugged in another option will pop up (I can't remember which number it is right now, but if you try the different input values you'll only have one that works with EMG inputs lol).
    But you'll use that device number (X) to run the game using that input. 
     ```bash
    $ python flappyemg.py -input X
