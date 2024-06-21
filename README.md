@@ -21,10 +21,20 @@ Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be install
 
 1. In the root directory run
 
+   Create the environment from the environment.yml file:
    ```bash
-   $ pipenv install
-   $ pipenv run python flappy.py
+   $ conda env create -f flappybird.yml
    ```
+   Activate the new environment:
+    ```bash
+   $ conda activate flappybird
+   ```
+   Verify the environment was installed correctly:
+    ```bash
+   $ conda env list
+   ```
+    <img width="534" alt="Screenshot 2024-06-21 at 12 21 42 PM" src="https://github.com/kendranoneman/FlapPyBirdEMG/assets/37158560/59b21f59-6d30-47ba-a8c7-7d72d189c4c9">
+
 
 1. Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
 
