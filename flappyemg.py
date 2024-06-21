@@ -16,9 +16,9 @@ inputThresh = 8.0
 
 FPS = 30
 SCREENWIDTH  = 288 #288
-SCREENHEIGHT = 512 #512
+SCREENHEIGHT = SCREENWIDTH * 1.77777777778 #512
 
-PIPEGAPSIZE  = 100 # gap between upper and lower part of pipe
+PIPEGAPSIZE  = 150 # gap between upper and lower part of pipe
 BASEY        = SCREENHEIGHT * 0.79
 # image, sound and hitmask  dicts
 IMAGES, SOUNDS, HITMASKS = {}, {}, {}
@@ -224,14 +224,14 @@ def mainGame(movementInfo):
     pipeVelX = -4
 
     # player velocity, max velocity, downward accleration, accleration on flap
-    playerVelY    =  -9   # player's velocity along Y, default same as playerFlapped
-    playerMaxVelY =  10   # max vel along Y, max descend speed
-    playerMinVelY =  -8   # min vel along Y, max ascend speed
-    playerAccY    =   1   # players downward accleration
-    playerRot     =  45   # player's rotation
-    playerVelRot  =   3   # angular speed
-    playerRotThr  =  20   # rotation threshold
-    playerFlapAcc =  -9   # players speed on flapping
+    playerVelY    =  -9   # player's velocity along Y, default same as playerFlapped, -9
+    playerMaxVelY =  10   # max vel along Y, max descend speed, 10
+    playerMinVelY =  -8   # min vel along Y, max ascend speed, -8
+    playerAccY    =   1   # players downward accleration, 1
+    playerRot     =  45   # player's rotation, 45
+    playerVelRot  =   3   # angular speed, 3
+    playerRotThr  =  20   # rotation threshold, 20
+    playerFlapAcc =  -6   # players speed on flapping, -6
     playerFlapped = False # True when player flaps
 
 
