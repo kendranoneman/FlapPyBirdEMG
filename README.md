@@ -5,18 +5,13 @@ A clone of a flappy bird [clone](https://github.com/sourabhv/FlapPyBird) that ca
 
 How-to (as tested on MacOS)
 ---------------------------
-Additional pip packages such as `pyaudio` may have to be installed too.
+Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be installed too.
 
-1. Install Python 3.x (recommended) 2.x from [here](https://www.python.org/download/releases/)
-
-1. Install [pipenv]
-
-1. Install PyGame 1.9.x from [here](http://www.pygame.org/download.shtml)
-
-1. Clone the repository:
+1. Clone the repository or fork/clone your own:
 
    ```bash
-   $ git clone https://github.com/sourabhv/FlapPyBird
+   $ git clone https://github.com/kendranoneman/FlapPyBirdEMG.git 
+   $ git clone git@github.com:kendranoneman/FlapPyBirdEMG.git
    ```
 
    or download as zip and extract.
