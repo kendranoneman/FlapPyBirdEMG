@@ -3,7 +3,7 @@ FlapPyBirdEMG
 
 A clone of a flappy bird [clone](https://github.com/sourabhv/FlapPyBird) that can be played with any microphone input. This project is compatible with Backyard Brain's [SpikerBox](https://backyardbrains.com/products/spikerboxBundle).  
 
-How-to (as tested on MacOS)
+Setup (as tested on MacOS)
 ---------------------------
 Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be installed too.
 
@@ -19,7 +19,7 @@ Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be install
     ```
    or download as zip and extract.
 
-1. In the root directory run
+2. In the root directory, run
 
    Create the environment from the environment.yml file:
    ```bash
@@ -39,6 +39,25 @@ Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be install
 1. Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
 
 (For x64 windows, get exe [here](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame))
+
+Running FlappyBird
+---------------------------
+1. In the root directory (with the conda environment activated), run
+   ```bash
+   $ python flappyemg.py
+   ```
+   This *won't* run the game, but it'll show you the options of **Input Devices** you have to pick from.
+   When the SpikerBox isn't plugged into the computer, I see these options listed as input devices:
+   * Device number (0): MacBook Pro Microphone
+   * Device number (1): MacBook Pro Speakers
+   * Device number (2): Kendra’s iPhone Microphone
+   * Device number (3): Microsoft Teams Audio
+  
+   But, when the SpikerBox is plugged in another option will pop up (I can't remember right now which one it is lol).
+   But you'll use that device number (X) to run the game using that input. 
+    ```bash
+   $ python flappyemg.py -input X
+   ```
 
 Notable forks
 -------------
