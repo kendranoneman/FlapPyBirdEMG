@@ -11,11 +11,11 @@ Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be install
 
    If you have SSH keys configured:
    ```bash
-   $ git clone git@github.com:kendranoneman/FlapPyBirdEMG.git
+   git clone git@github.com:kendranoneman/FlapPyBirdEMG.git
    ```
    OR 
    ```bash
-   $ git clone https://github.com/kendranoneman/FlapPyBirdEMG.git 
+   git clone https://github.com/kendranoneman/FlapPyBirdEMG.git 
     ```
    or download as zip and extract.
 
@@ -23,17 +23,23 @@ Additional pip packages such as `pyaudio`,`PyGame`,etc... may have to be install
 
    Create the environment from the environment.yml file:
    ```bash
-   $ conda env create -f flappybird.yml
+   conda env create -f flappybird.yml
    ```
    Activate the new environment:
     ```bash
-   $ conda activate flappybird
+   conda activate flappybird
    ```
    Verify the environment was installed correctly:
     ```bash
-   $ conda env list
+   conda list
    ```
     <img width="534" alt="Screenshot 2024-06-21 at 12 21 42 PM" src="https://github.com/kendranoneman/FlapPyBirdEMG/assets/37158560/59b21f59-6d30-47ba-a8c7-7d72d189c4c9">
+
+3. If you are having troubles installing 'aubio', then run this:
+   ```bash
+   pip install git+https://git.aubio.org/aubio/aubio/
+   ```
+   
 
 
 Use <kbd>&uarr;</kbd> or <kbd>Space</kbd> key to play and <kbd>Esc</kbd> to close the game.
